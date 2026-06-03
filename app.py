@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Mazraat Credits Automator v3.0 - with Discord Control Bot
+Mazraat Credits Automator v3.0 - with Discord Control Bot (nextcord version)
 Author: Dark & f5r
 """
 
@@ -202,14 +202,14 @@ def control():
 def start_flask():
     app.run(host="0.0.0.0", port=PORT, debug=False, use_reloader=False)
 
-# ========== DISCORD CONTROL BOT (RELAY) ==========
+# ========== DISCORD CONTROL BOT (RELAY) using nextcord ==========
 def start_discord_bot():
     if not DISCORD_BOT_TOKEN or not COMMAND_CHANNEL_ID:
         log("Discord bot not configured. Skipping.", "WARNING")
         return
 
-    import discord
-    from discord.ext import commands
+    import nextcord as discord
+    from nextcord.ext import commands
 
     intents = discord.Intents.default()
     intents.message_content = True
@@ -246,7 +246,7 @@ def start_discord_bot():
 
 # ========== MAIN ==========
 if __name__ == "__main__":
-    log("🚀 Mazraat Automator v3.0 starting...")
+    log("🚀 Mazraat Automator v3.0 (nextcord) starting...")
     log(f"📡 Target channel: {CHANNEL_ID}")
     log(f"👥 Loaded {len(TOKENS)} tokens")
 
